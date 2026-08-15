@@ -1,0 +1,21 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/images"
+public_folder: "/images"
+
+collections:
+  - name: "news"
+    label: "News Posts"
+    folder: "src/content/news"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Category", name: "category", widget: "string", required: false, hint: "e.g. Town Council, Sports, Events" }
+      - { label: "Summary", name: "summary", widget: "text", required: false, hint: "Shown on the homepage under the headline" }
+      - { label: "Photo", name: "image", widget: "image", required: false }
+      - { label: "Draft", name: "draft", widget: "boolean", default: false, hint: "Turn on to hide from the site until you're ready" }
+      - { label: "Story", name: "body", widget: "markdown" }
