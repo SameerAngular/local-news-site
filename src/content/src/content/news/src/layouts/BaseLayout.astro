@@ -1,0 +1,84 @@
+---
+const { title = "Local News" } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <style>
+      :root {
+        --ink: #1a1a1a;
+        --accent: #b3261e;
+        --bg: #fdfdfb;
+        --line: #e5e2da;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: Georgia, "Times New Roman", serif;
+        color: var(--ink);
+        background: var(--bg);
+        line-height: 1.55;
+      }
+      header {
+        border-bottom: 3px solid var(--ink);
+        padding: 1.25rem 1rem 0.75rem;
+        text-align: center;
+      }
+      header .kicker {
+        font-family: Helvetica, Arial, sans-serif;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        font-size: 0.7rem;
+        color: var(--accent);
+      }
+      header h1 {
+        margin: 0.25rem 0 0;
+        font-size: 2rem;
+        letter-spacing: -0.01em;
+      }
+      main {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 1.5rem 1rem 4rem;
+      }
+      a { color: var(--ink); }
+      .post-card {
+        border-bottom: 1px solid var(--line);
+        padding: 1.25rem 0;
+      }
+      .post-card h2 {
+        margin: 0 0 0.35rem;
+        font-size: 1.3rem;
+      }
+      .post-card a { text-decoration: none; }
+      .post-card a:hover { text-decoration: underline; }
+      .meta {
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 0.78rem;
+        color: #666;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+      .summary { margin: 0.4rem 0 0; color: #333; }
+      article img { max-width: 100%; border-radius: 4px; }
+      .back-link {
+        display: inline-block;
+        margin-bottom: 1.5rem;
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 0.85rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="kicker">Serving the community</div>
+      <h1><a href="/" style="text-decoration:none;color:inherit;">Local News</a></h1>
+    </header>
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>
